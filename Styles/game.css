@@ -1,0 +1,69 @@
+.game__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+#game__area {
+    background-color: #282730;
+    border: 2px solid #333339;
+    border-radius: 9px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    margin-top: 1rem;
+}
+
+.cell {
+    background-color: #282730;
+    border: 2px solid #333339;
+    height: 100px;
+    transition: 0.2s all;
+    width: 100px;
+}
+
+.correct {
+     background-color: #45e0be;
+    border: 2px solid #6beed2;
+    height: 100px;
+    transition: 0.2s all;
+    width: 100px;
+}
+
+.active {
+    background-color: #5741fd !important;
+    border: 2px solid #6d5afa;
+    height: 100px;
+    transition: 0.2s all;
+    width: 100px;
+}
+
+
+
+
+.cell:hover {
+    background-color: #282730;
+    border: 2px solid #515159;
+}
+
+.game__elements {
+    display: flex;
+    align-items: center;
+    width: 47%;
+    justify-content: space-around;
+}
+
+.game__elements > button {
+    background-color: rgb(71, 65, 241);
+    border: none;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: 0.2s all;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid rgb(89, 84, 247);
+    text-decoration: none;
+}
