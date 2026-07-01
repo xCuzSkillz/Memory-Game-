@@ -1,7 +1,7 @@
 const arena = document.getElementById("game__area")
 const levelTitle = document.getElementById("level__title")
 const overlay = document.getElementById("overlay")
-
+const overlayLast = document.getElementById("overlay_last")
 // Control Buttons
 const playAgain = document.getElementById("playAgain")
 const nextLevel = document.getElementById("nextLevel")
@@ -88,7 +88,9 @@ cells.forEach((e) => {
         e.classList.add("correct")
         e.disabled = true;
         pickCounter.push(e)
-        if(pickCounter.length === activated) {
+    if(pickCounter.length === 9) {
+        overlayLast.style.display = "block";
+     } else if (pickCounter.length === activated) {
         overlay.style.display = "block";
      }
     }
@@ -96,8 +98,8 @@ cells.forEach((e) => {
 })
 
  nextLevel.addEventListener("click", (e) => {
-            localStorage.setItem("level", currentLevel + 1)
-            window.location.reload();
+     localStorage.setItem("level", currentLevel + 1)
+     window.location.reload();
 })
 
  playAgain.addEventListener("click", (e) => {
