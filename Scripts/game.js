@@ -1,5 +1,6 @@
 const arena = document.getElementById("game__area")
 const levelTitle = document.getElementById("level__title")
+const overlay = document.getElementById("overlay")
 
 levels = [
     {
@@ -42,8 +43,9 @@ for(let i = 0; i < 35; i++) {
 
 const cells = document.querySelectorAll(".cell")
 
-let count = 4;
 let activated = 0;
+
+let pickCounter = [];
 
 levels.forEach((e) => {
    if(currentLevel === e.level) {
@@ -56,17 +58,8 @@ levels.forEach((e) => {
 
         cells.forEach((e) => {
            e.disabled = true;
-           e.addEventListener("click", () => {
-            if(!e.hasAttribute("correct")) {
-               e.classList.add("wrong")
-                cells.forEach((e) => {
-                   e.disabled = true;
-                }) 
-            }
-            e.classList.add("correct")
-           })
 
-             setTimeout(() => {
+            setTimeout(() => {
                 cells[any].classList.remove("active");
                 e.disabled = false
             }, 3000)
@@ -74,4 +67,22 @@ levels.forEach((e) => {
    }
   }
 }
+})
+
+cells.forEach((e) => {
+   e.addEventListener("click", () => {
+    if(!e.hasAttribute("correct")) {
+       e.classList.add("wrong")
+        cells.forEach((e) => {
+           e.disabled = true;
+        }) 
+    } else if (e.hasAttribute("correct")){
+        e.classList.add("correct")
+        e.disabled = true;
+        pickCounter.push(e)
+        if(pickCounter.length === activated) {
+            overlay.style.display = "block";
+        }
+    }
+   })
 })
