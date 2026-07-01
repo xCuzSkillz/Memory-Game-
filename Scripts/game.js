@@ -2,8 +2,11 @@ const arena = document.getElementById("game__area")
 const levelTitle = document.getElementById("level__title")
 const overlay = document.getElementById("overlay")
 const overlayLast = document.getElementById("overlay_last")
+const loseOverlay = document.getElementById("overlay__lose")
+const totalSlots = document.getElementById("total__slots")
 // Control Buttons
 const playAgain = document.getElementById("playAgain")
+const playAgainLose = document.getElementById("playAgainLose")
 const nextLevel = document.getElementById("nextLevel")
 
 levels = [
@@ -84,6 +87,8 @@ cells.forEach((e) => {
         cells.forEach((e) => {
            e.disabled = true;
         }) 
+        loseOverlay.style.display = "block";
+        totalSlots.innerHTML = `You Lost! Play again <br> Total Picked Slots: ${pickCounter.length}/${activated}`
     } else if (e.hasAttribute("correct")){
         e.classList.add("correct")
         e.disabled = true;
@@ -103,5 +108,9 @@ cells.forEach((e) => {
 })
 
  playAgain.addEventListener("click", (e) => {
-            window.location.reload();
+    window.location.reload();
+})
+
+ playAgainLose.addEventListener("click", (e) => {
+    window.location.reload();
 })
