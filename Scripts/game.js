@@ -9,23 +9,23 @@ levels = [
     },
     {
         level: 2,
-        count: 6,
+        count: 5,
     },
     {
         level: 3,
-        count: 8,
+        count: 6,
     },
     {
         level: 4,
-        count: 10,
+        count: 7,
     },
     {
         level: 5,
-        count: 12,
+        count: 8,
     },
     {
         level: 6,
-        count: 14,
+        count: 9,
     },
 
 ]
