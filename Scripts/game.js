@@ -30,7 +30,11 @@ levels = [
 
 ]
 
-let currentLevel = 1;
+if(!localStorage.getItem("level")) {
+ localStorage.setItem("level", 1)
+}
+
+let currentLevel = Number(localStorage.getItem("level"));
 
 levelTitle.textContent = `Level ${currentLevel}`
 
@@ -83,6 +87,7 @@ cells.forEach((e) => {
         if(pickCounter.length === activated) {
             overlay.style.display = "block";
         }
+       localStorage.setItem("level", currentLevel + 1)
     }
    })
 })
