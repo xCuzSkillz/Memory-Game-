@@ -29,7 +29,7 @@ levels = [
 
 ]
 
-let currentLevel = 4;
+let currentLevel = 1;
 
 levelTitle.textContent = `Level ${currentLevel}`
 
@@ -51,26 +51,19 @@ levels.forEach((e) => {
     let any = Math.floor(Math.random() * cells.length);
     if (!cells[any].classList.contains("active")) {
         cells[any].classList.add("active");
+        cells[any].setAttribute("correct", "true");
         activated++;
 
-        let requiredCells = []
-        requiredCells.push(cells[any])
-
-       cells.forEach((e) => {
-        e.addEventListener("click", () => {
-            console.log("sdfds")
-        })
-       }) 
-
-        requiredCells.forEach((e) => {
+        cells.forEach((e) => {
            e.addEventListener("click", () => {
-            console.log("Click!")
+            if(!e.hasAttribute("correct")) {
+               e.classList.add("wrong")
+            }
+
             e.classList.add("correct")
            })
         })
 
-        
-        
        setInterval(() => {
          cells[any].classList.remove("active");
        }, 3000)

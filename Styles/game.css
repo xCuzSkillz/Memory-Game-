@@ -32,6 +32,14 @@
     width: 100px;
 }
 
+.wrong {
+    background-color: #e04545;
+    border: 2px solid #ea5a5a;
+    height: 100px;
+    transition: 0.2s all;
+    width: 100px;
+}
+
 .active {
     background-color: #5741fd !important;
     border: 2px solid #6d5afa;
