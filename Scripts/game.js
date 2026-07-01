@@ -34,7 +34,7 @@ let currentLevel = 1;
 levelTitle.textContent = `Level ${currentLevel}`
 
 for(let i = 0; i < 35; i++) {
-    let cell = document.createElement("div")
+    let cell = document.createElement("button")
     cell.className = "cell"
 
     arena.append(cell)
@@ -55,18 +55,22 @@ levels.forEach((e) => {
         activated++;
 
         cells.forEach((e) => {
+           e.disabled = true;
            e.addEventListener("click", () => {
             if(!e.hasAttribute("correct")) {
                e.classList.add("wrong")
+                cells.forEach((e) => {
+                   e.disabled = true;
+                }) 
             }
-
             e.classList.add("correct")
            })
-        })
 
-       setInterval(() => {
-         cells[any].classList.remove("active");
-       }, 3000)
+             setTimeout(() => {
+                cells[any].classList.remove("active");
+                e.disabled = false
+            }, 3000)
+        })
    }
   }
 }
